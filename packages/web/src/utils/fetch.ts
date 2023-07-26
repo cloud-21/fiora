@@ -17,6 +17,8 @@ export default function fetch<T = any>(
     }
     return new Promise((resolve) => {
         socket.emit(event, data, (res: any) => {
+            console.warn('res', res);
+
             if (typeof res === 'string') {
                 if (toast) {
                     Message.error(res);

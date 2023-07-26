@@ -410,6 +410,8 @@ function ChatInput() {
 
         // @ts-ignore
         const message = $input.current.value.trim();
+        console.warn('message', message);
+
         if (message.length === 0) {
             return null;
         }

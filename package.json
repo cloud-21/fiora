@@ -56,5 +56,6 @@
   },
   "dependencies": {
     "commander": "^8.0.0"
-  }
+  },
+  "__npminstall_done": false
 }

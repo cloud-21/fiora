@@ -471,11 +471,11 @@ function reducer(state: State = initialState, action: Action): State {
                     ...linkmans[linkmanId],
                     ...(linkmansMessages[linkmanId]
                         ? {
-                            messages: getMessagesMap(
-                                linkmansMessages[linkmanId].messages,
-                            ),
-                            unread: linkmansMessages[linkmanId].unread,
-                        }
+                              messages: getMessagesMap(
+                                  linkmansMessages[linkmanId].messages,
+                              ),
+                              unread: linkmansMessages[linkmanId].unread,
+                          }
                         : {}),
                 };
             });
@@ -538,12 +538,12 @@ function reducer(state: State = initialState, action: Action): State {
             const newMessages = shouldDelete
                 ? deleteObjectKey(state.linkmans[linkmanId].messages, messageId)
                 : {
-                    ...state.linkmans[linkmanId].messages,
-                    [messageId]: convertMessage({
-                        ...state.linkmans[linkmanId].messages[messageId],
-                        deleted: true,
-                    }),
-                };
+                      ...state.linkmans[linkmanId].messages,
+                      [messageId]: convertMessage({
+                          ...state.linkmans[linkmanId].messages[messageId],
+                          deleted: true,
+                      }),
+                  };
 
             return {
                 ...state,

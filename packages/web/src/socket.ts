@@ -29,6 +29,7 @@ const { dispatch } = store;
 const options = {
     // reconnectionDelay: 1000,
 };
+
 const socket = IO(config.server, options);
 
 async function loginFailback() {
@@ -56,6 +57,8 @@ async function loginFailback() {
 }
 
 socket.on('connect', async () => {
+    console.warn('socket.id', socket.id);
+
     dispatch({ type: ActionTypes.Connect, payload: '' });
 
     await initOSS();
@@ -208,8 +211,8 @@ socket.on('message', async (message: any) => {
             const from =
                 linkman && linkman.type === 'group'
                     ? `${message.from.username}${
-                        linkman.name === prevName ? '' : `在${linkman.name}`
-                    }说`
+                          linkman.name === prevName ? '' : `在${linkman.name}`
+                      }说`
                     : `${message.from.username}对你说`;
             if (text) {
                 voice.push(

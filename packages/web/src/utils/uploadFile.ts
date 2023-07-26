@@ -3,6 +3,8 @@ import fetch from './fetch';
 
 let ossClient: OSS;
 let endpoint = '/';
+console.warn('getOSSFileUrl');
+
 export async function initOSS() {
     const [, token] = await fetch('getSTS');
     if (token?.enable) {

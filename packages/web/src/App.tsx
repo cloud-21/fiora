@@ -6,7 +6,7 @@ import './styles/iconfont.less';
 
 import { isMobile } from '@fiora/utils/ua';
 import inobounce from './utils/inobounce';
-import { getOSSFileUrl } from './utils/uploadFile';
+import { getOSSFileUrl } from './utils/uploadFile'; //初始化数据
 
 import Style from './App.less';
 import { State } from './state/reducer';
@@ -115,8 +115,9 @@ function App() {
     // 模糊背景样式
     const blurStyle = useMemo(
         () => ({
-            backgroundPosition: `${(-(1 - width) * window.innerWidth) /
-                2}px ${(-(1 - height) * window.innerHeight) / 2}px`,
+            backgroundPosition: `${(-(1 - width) * window.innerWidth) / 2}px ${
+                (-(1 - height) * window.innerHeight) / 2
+            }px`,
             ...style,
             ...childStyle,
         }),
@@ -156,7 +157,7 @@ function App() {
             <div className={Style.blur} style={blurStyle} />
             <div className={Style.child} style={childStyle}>
                 <ShowUserOrGroupInfoContext.Provider
-                    value={(contextValue as unknown) as null}
+                    value={contextValue as unknown as null}
                 >
                     <Sidebar />
                     <FunctionBarAndLinkmanList />
